@@ -1,0 +1,6 @@
+take array of size 10 then make it 100 , 1000 , 10000 , 100000.
+Run the merge sort and then the bubble sort program on local IDE because online ide takes lot of time.
+Note time taken for each value of n and then we will realise bubble sort is proportional to nsquare
+and for for merge sort it is nlogn
+The inbuilt sort is faster than the other merge and quick sort hence obviosuly faster than bubble sort.
+

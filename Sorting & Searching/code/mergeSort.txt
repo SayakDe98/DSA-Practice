@@ -1,0 +1,20 @@
+Concept of merge sort:
+Input array: [10, 5, 2, 0, 7, 6, 4]
+Sorted array: [0, 2, 4, 5, 6, 7, 10]
+
+step 1: Divide array into two parts. Divide about mid point
+
+            array
+           /     \
+        10, 5,   0, 7, 6,
+        2        4
+(start to mid)   (mid + 1 to end)
+step 2: merge sort(left) and merge sort(right)
+we get 2,5,10 and 0,4,6,7
+
+step 3: merge the left and right parts into single array.
+we need two pointers i pointer which points to lowest value of left sorted array and j which points to lowest value of right sorted array
+we will compare value at i & j which ever is smaller we put into new array
+
+now we copy back these elements into original array.
+This uses divide and conquer algo.

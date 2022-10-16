@@ -1,0 +1,18 @@
+1) Clarify the problem. We can re ask the question if we don't understand. We can write it down.
+The person who attended the interview asked: could there be -ve numbers or floating point numbers.
+The answer of that question changes the outcome of the code.
+2)Before writing the solution we should think out loud constantly.
+By doing that the interviewer can course correct you to the direction of the question 
+they were asking or to feed off that and ask you more questions that will help you
+demonstrate your knowledge even further because they have said something that I can expand upon.
+This will help us work out the problem. Two minds are better than one.
+He thought out loud before writing the code.
+At first not the best solution came to his mind.
+The interviewer might ask you to make your solution better : faster and/or using less memory.
+Ultimately when you think both are at a place where we can code it then start coding it.
+Next good thing is we should have some test cases.
+Like in this interviewer the interviewer gave two sample test cases:
+[1,2,3,9],sum=8 and [1,2,4,4],sum=8
+If interviewer doesn't give test case then make one up.
+Then think of edge cases.
+In the sample interview he tested an empty collection which is very good to think about.

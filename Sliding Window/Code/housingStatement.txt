@@ -1,0 +1,82 @@
+Housing:
+
+Along one side of a road there is a sequence of vacant plots
+of land. Each plot has a different area(non-zero). So,
+the areas form a sequence A[1], A[2],..., A[N].
+
+You want to buy K acres of land to build a house. You want
+to find all segments of contigious plots(i.e. a subsection in the sequence)
+of whose sum is exactly K.
+
+Sample Input
+Plots = [1 3 2 1 4 1 3 2 1 1 2]
+K = 8
+
+Sample Output
+2 5
+4 6
+5 9
+
+First attempt brute force
+-> We can get all the subarrays.
+It will require two loops, one for i and one for j
+T.C.:O(n ^ 2) * O(n)(for summing the subarray from two loops)
+
+Second Attempt prefix sum
+-> By using prefix sum
+for array: 1,3,2,5 prefix_sum = 1,4,6,11
+prefix[i] = prefix[i - 1] + arr[i]
+
+for loop with variable j:
+sum of subarray from i to j:prefix[j] - prefix[i - 1]
+
+For every i we find a j such that prefix[j] - prefix[i] == k
+lets say we have an array:1,3,2,5
+prefix_sum_array:1,4,6,11
+i points at 4 of prefix_sum
+k = 7, so j should point at a prefix_sum element whose value is greater than k
+so it will point at 11
+
+the array will contain non negative elements
+hence prefix_sum_array will be non decreasing array
+
+For every i we find a corresponding j using binary search in logn time
+
+t.c: we will get prefix_sum_array in O(n) time, then we have to go to every index and for every index we have to get corresponding j we need logn time so for n indices we require nlogn time
+So overall T.C.: O(nlogn)
+
+Final Attempt 
+-> Sliding Window
+We are going to mainatain a window and store the sum of that window
+Keep two pointers i and j at index 0
+keep a sum variable and store the value of 1st element that is at index 0
+
+Let's say array: 1, 3, 2, 1, 4, 1, 3, 2, 1, 1, 2
+k = 8
+
+sum = 1
+
+now expand window
+sum = 1 + 3 = 4
+
+expand:
+sum = 1 + 3 + 2 = 6
+
+expand:
+sum = 1 + 3 + 2 + 1 = 7
+
+expand:
+sum = 1 + 3 + 2 + 1 + 4 = 11 > (k = 8)
+
+so contract window from left:
+sum = 3 + 2 + 1 + 4 = 10 which is still larger than 8
+
+contract:
+sum = 2 + 1 + 4 = 7 which is smaller than (k = 8)
+
+expand on right:
+sum = 2 + 1 + 4 + 1 = 8 = k, so note i and j position and send as Output
+
+now we make i = i + 1 and check with K and keep doing till we get more subarrays/  j reaches end
+
+note: each element entered window once and exitted window once.

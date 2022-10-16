@@ -1,0 +1,64 @@
+We can do insertion, deletion(erase), search in O(1) time complexity on an average.
+We want to find value of a particular key then we search.
+Let's suppose we search for Dosa then we will get result as 100 in O(1).
+Order 1 means it doesn't depend on how many items are there in the menu , it will work in order 1 time.
+Hashtable majorly supports these 3 operations.
+Hashtable can do these operations in almost constant time.
+Hash table is very powerful Data structure.
+It helps in solving linked list, arrays, sliding windows, graph algo, etc
+
+Let's suppose we are creating an array of pairs string and int 
+Array<Pair<string , int >
+Then what is the disadvantage of using an array instead of using a hashtable?
+Answer: Suppose instead of using a hash table we store the information inside an array.
+Then let's suppose we have lots of items inside an array and we want to search price of Maggi.
+The array is not sorted meaning we cannot use Binary Search means we cannot search in O(log n) time.
+Hence cannot do the search in O(1) as well.
+To search Maggi inside the array time complexity will be O(N).
+Both hashtable and array will take extra space but hashtable is very fast.
+
+Let's suppose we went to dominos and asked for the price of a pizza from the pizza seller,
+Do you want an instant answer or do you want to wait 2 minutes to get an answer?
+If you want to wait for 2 mins you will implement the seller using an array.
+But if you want instant answer you will implement using hash table.
+Hash table has key-value pairs and they are not ordered.
+How the hashtable is implemented accordingly this order is randomized.
+
+Fun Fact : dictionary in python is a hashtable.
+
+Simplest possible implementation of hashtable inside C++ is unordered map.
+The class to create a hashtable in C++ is unordered_map.
+unordered map means we are making a mapping between key and a value pair.
+There are containers like maps , sets , unordered_sets.
+There are multimaps , unordered multimaps.
+There are sets, unordered multi sets as well.
+Today we will focus on unordered maps and unordered sets.
+Unordered_maps and unordered_sets support the operations search , delete , insert in O(1) time on average.
+unordered_maps store key-value pairs
+unordered_sets store only the keys. If we have a problem where we don't need to store the values then we go with unordered_sets
+Maps and Sets are balanced binary search trees(BST's) and their internal implementation is different from what a hash table looks like.
+These are height balanced trees , so to do an insertion , searching and deletion they take O(log n) time.
+In Graphs we have: 
+1)djakstra's algorithm it uses Set kind of container.
+2)Splitwire algorithm uses a multimap/multiset kind of container.
+
+Q)Difference between Hashtable and DBMS?
+Answer: DBMS is very huge it resides on the hard disk whereas Hashtable resides on the RAM.
+DBMS is also optimized it uses data structures internally to do the indexing , hashtable is little different. It is used when an algorithm is running.
+
+LET'S SEE HOW WE CAN MAKE A SIMPLE RESTURANT MENU:
+It is done in code
+
+Internally unordered map is called hashing with separate chaining.
+
+If we use map instead of unordered map then our hashtable is sorted and all our queries is in O(log n) instead of O(1).
+Because map is a Balanced tree which has a height of log n
+Hence every operation is log n
+
+Write a function to check if a cycle is present in linked list.
+We can use a hash table and inside it store the value of the nodes.
+If we have a cycle we will see that the node is already present inside the hash table hence we are able to detect the cycle in linked list.
+Use the hashtable : unordered_map<node * , bool> this is the container.
+Best way is to solve using floyd's cycle but for practice sake we can use a hashtable.
+
+We can use multimaps or unordered_multimaps when we have similar keys.

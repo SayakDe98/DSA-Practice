@@ -1,0 +1,41 @@
+in cpp there are two ways to represent string:
+1)character array, we can say the character array represents a string and we can initilize it with list of characters but that is not recommended way of working with strings for most problems becasue its not easy and offers less flexibility because size of character array is fixed.
+e.g.: char s[1000] = {'1', 'a','b','c','\0'};
+2)string class: Instead of the character array we have the string class which has a lot of inbuilt functions and it also provides with dynamic array.
+string s; // Dynamic Array means its size can change in runtime as well.
+we can also initlize it like:
+string s = "Hello world";
+
+cout<< s << endl;
+
+We can also make a call to the constructor to create the object for initiliazting a string:
+string s("Hello world");
+
+We can also define string s then call getline function to take input by passing two parameters cin and s and will take input from user and store it as a string
+
+We can also pass another parameter which can be used as a terminating character like we can pass the third parameter as .
+string s;
+getline(cin, s, '.');
+
+IF we want to iterate on every character of string:
+string s;
+
+getline(cin, s);
+
+for(char c: s){
+	cout << c << ',' ;
+}
+
+If we want to iterate on every string of multiple strings:
+string s;
+int n= 5;
+vector<string> sarr;
+string temp;
+while(n--){
+	getline(cin,temp);
+	sarr.push_back(temp);
+}
+
+for(string x : sarr){
+	cout << x << "," <<endl;
+}

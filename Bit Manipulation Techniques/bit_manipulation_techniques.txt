@@ -1,0 +1,51 @@
+These are algorithms with which we can change data in their binary level.
+Every programming language has some bitwise operators which allow us to operate on the binary representation of the data that we have.
+We will look what are the bitwise operators, their types and how we can use them
+We use them because they are fast as compared to non bitwise operators. They operate on binary representation of data.
+
+Different types of bitwise operators:
+Binary AND &
+Binary OR |
+Binary XOR ^
+Binary One's Complement ~
+Binary Left Shift <<
+Binary Right Shift >>
+
+Binary AND & 
+	0 & 0 = 0
+	1 & 0 = 0
+	0 & 1 = 0
+	1 & 1 = 1
+	
+	e.g.: 5 & 7 =  0000101 & 0000111 = 0000101
+Binary OR |
+	0 | 0 = 0
+	0 | 1 = 1
+	1 | 0 = 1
+	1 | 1 = 1
+	
+	e.g.: 5 | 8 = 0101 | 1000 = 1101 = 13
+Binary XOR ^
+	0 ^ 0 = 0
+	0 ^ 1 = 1
+	1 ^ 0 = 1
+	1 ^ 1 = 0
+	
+	e.g.:5 ^ 7 = 101 ^ 111 = 010
+Binary Not ~
+	~0 = 1
+	~1 = 0
+	
+	e.g.: ~ 101 = 010(flip's bits)
+	
+	int a = 0;
+	cout << (~a); Answer= ~0000000(32 bits) = 1(sign bit)111111(31 bits) = -1
+
+Binary Left Shift(multiplication)
+	5 << 2
+	0000101 will become 0010100 we shift two bits to left and fill empty places with 0's
+Binary Right Shift(division):
+	5 >> 2
+	0000101 will become 0000001
+	 
+

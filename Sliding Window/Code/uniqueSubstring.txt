@@ -1,0 +1,54 @@
+Unique Substring
+Given a string, write a function to find the largest
+substring with unique characters(no duplicates).
+
+Sample Input:
+prateekbhaiya
+aabcb
+
+Sample Output:
+ekbhaiy
+abc
+
+Unique characters means we can use hashing
+
+Approach 1: Brute Force:
+Use nested loops
+Compare if arr[i] == arr[j] if yes then terminate else s += arr[j] where j is iterator for inner loop
+
+Approach 2: Storing the last occurance of current characters
+We can use sliding window we will increase value of fast moving pointer if element at j isn't present inside the window
+
+Approach 3: unordered_map is to be used which is a hashmap
+We will maintain a hashmap to check if element is part of window, update last occurance in every step
+
+string: a b c a e b a
+Find the largest substring which contains unique characters
+Answer:
+hashmap:
+character: index
+a: 0
+b: 1
+c: 2
+a : we can't include a since a is already a part of window,
+so start a new window from b
+i = b, j = a
+a: 3
+b: 1
+c: 2
+e: 4
+b: we can't include a since b is already a part of window,
+so start a new window from index where b was there + 1
+i = c, j = b
+a: 3
+b: 5
+c: 2
+e: 4
+a: we can't include a since a at 3 so, i = a's index + 1
+i = b, j = a
+a: 6
+b: 5
+c: 2
+e: 4
+we reached end so we stop
+largest window: 4
