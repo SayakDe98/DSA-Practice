@@ -1,0 +1,94 @@
+Order complexity are of two types : Space complexity and time complexity
+Experimental Analysis:It is used for checking run time of program by actually running the program.
+OR
+Without run a code, calculate how much time it takes by looking at the code:Theorectical analysis
+
+We can use ide.codingminutes.com as an ide to run our codes
+It is not feasible to do experimental analysis always so we do theoretical analysis.
+Inbuilt sorting algo takes nlogn time.
+Hence the graph of number of elements vs sorting time is nlogn graph
+
+If we DON'T know the data type we can use the auto keyword. for the clock the data type is clock_t
+
+Inbuilt sort function is faster than quick sort and faster than merge sort.
+Inbuilt sort works in nlogn time. it is a hybrid sort
+
+We want to do theoretical analysis since we don't want to waste time writing code.
+In practice we will write the code which is faster.
+When interviewer asks which sorting algo we should use , we should ask interviewer what type of data is present.
+If it is range bound data then counting sort is fast.
+In some problems radix sort is fast.
+In general nlogn sorting algos are quite fast.
+introsort is the inbuilt c++ sorting algorithm
+bubble sort, insertion sort and selection sort are n square algo and generally we dont use it.
+We use bubble sort when we don't want to write much code , or we want to do inplace sorting .
+
+We will see theoretical analysis of loop based examples,bubble sort , binary sort factorial polynomial evaluation fibonacci.
+
+In bubble sort we will evaluatw the inner loop once if array is sorted hence best tc:O(n)
+
+For recursive program space complexity is the stack space.
+For space complexity : for 2 raised to the power 5 we call 2^4, then 2^3,2^2,2^1 then finally 2^0
+for a ploynomial with highest power as n we can have best tc of O(n) and worst tc of O(n^2)
+where o(n^2) is if we use power function
+we can also use power function with o(nlogn) tc
+
+In recursion we calculate total time = number of calls * each call time
+for fibonacci it is k* 2^N = O(2^N)
+
+if we use dynamic programming we can reduce complexity
+in fibonacci using dp from 5 we make a call on 4 & 3
+from 4 we call 3 and 2
+from 3 we call 2 & 1
+from 2 we call 1 & 0
+in Dp the answer of that states are stored.
+
+In dp tc = number of unique states * time taken for each state.
+
+If we do top down DP then from 5 to 1 we have n number of calls
+and from 3 to 0 we have n-1 number of calls and we have 2n-1 calls hence we get order n using dp
+hence time complexity using top down dp is O(n) for fibonacci
+In top down dp we store the answer of every state we have calculated .
+Another way to look at dp is by looking at states.
+In dp every value of n is a unique state.
+we can have n states for dp of size n.
+we are calculating every state only once and for every state we are doing constant work of k
+hence we have order of n. This is another way of looking at complexity of dp.
+In bottom up dp we start with small solutions and then use small solutions to build large solutions.
+in bottom up dp we have for loop and it runs n times.
+we can do matrix exponentation in which we can solve fibonacci in O(logn)
+for fibonacci the entire tree doesnt exist at the same time.
+we have only left subtree or right subtree
+
+for recursion we have time complexity = number of calls * work done in each call and space complexity = maximum depth of call stack * extra memory per stack frame
+
+Backtracking:
+In sudoku we have a 9*9 grid. For each empty spot we can have 9 possible options from 1 to 9.
+Hence for 9*9 grid we have  order of 9^N^2 where N is the number of cols = number of rows
+This code uses brute force technique where we are doing all 9^81 possibilities.
+For N number of steps if we can take k steps at max then what is the tc?
+Answer: k^N because we have k branches for each branch where there are N branches.
+If we do this using DP: we have N states and work done in each state is k where k is an input and not constant hence the dp has a tc of O(N*k) where we use a loop from i=1 to i=k
+
+another way is sliding window:
+if we know the sum of last k terms now we want to calculate sum of next k terms.
+in sliding window we need to subtract one element from previous window and add one element in next window.We can avoid the loop. we can move from dp[i] to dp[i+1] in constant time. we can do this problem in O(n) time as well.
+
+Dynamic programming in 2D:
+Knapsack problem is a common problem of 2D DP:
+Given weights and prices of n items, we need to put a subset of items in a bag of capacity W such that we get the maximum total value in the bag , also known as knapsack.
+Input:N=4,W=11,wts=[2,7,3,4],prices={5,20,20,10},output:40.
+We can do this using top down dp:
+The order of this dp based approach is O(N*w) because we will have k as a constant.
+If you look at bottom up approach:we are fillng 2d grid and this n rows and w cols and to fill each  cell we are doing k calls and to fill all the cells we are doing N*W calls.Hence tc=O(N*W)
+
+Problems involving graphs:
+Graph traversal:BFS
+Initialization takes O(v) time.
+then we put all the nodes in the queue.
+we start from root then we put queue and then put children/neighbour in queue.
+every node goes and comes  out of queue only once.
+The outer while loop runs v times
+inner loop iterates over edges.
+It is not v*E for every node we are not iterating over all the edges.
+O(v+e) is the correct tc because we are iterating over one edge only once because other nodes can also have same edges. we are not taking the redundant edges.
