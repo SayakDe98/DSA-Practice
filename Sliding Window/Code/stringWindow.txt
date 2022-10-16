@@ -1,0 +1,41 @@
+String window
+Given two strings, one big string and one small string, find the 'smallest window'
+in the big string that contains all characters of the small string.
+
+- Window can have additional characters than required.
+- If small string has duplicates, then those duplicates must be present 
+with same or higher count in window.
+
+Input:
+s1 = hello_world
+s2 = lol
+
+Output: llo
+
+there is l two times and o once. the smallest window is llo
+
+Input:
+s1 = fizzbuzz
+s2 = fuzz
+
+Output: fizzbu
+
+Brute force is very inefficient so let's do sliding window
+
+sliding window = expand + contract
+
+s1 = "hello"
+s2 = "oel"
+
+Output: ello
+
+we can call s1 as string and s2 as pattern
+
+1)we can create frequency pattern[o - 1, e - 1, l - 1]
+2) maintain hashmap of current window
+w = [h: 1]->[h:1, e: 1] ->[h: 1, e: 1, l: 1]->[h: 1, e: 1, l: 2]->[h: 1, e: 1, l: 2, o: 1]
+h = start, o = end
+we found a window, now we try to find smallest window by doing contraction
+we try to remove uneccessary character from start
+
+[h,e,l,l,o]->[e,l,l,o] now we can't remove any further.

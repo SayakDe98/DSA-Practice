@@ -1,0 +1,15 @@
+Sliding Window Problems:
+Sliding window technique is useful for solving problems in array or string especially it is considered as a technique that could reduce the time complexity from O(n ^ 2) to  O(n)
+
+TYPE I: Fixed Window length k:
+The length of the window is fixed and it asks you to find something in the window such as the maximum sum of all windows, the maximum or median number of each window. Usually we ned kind of variables to maintain the state of the window, some are as simple as an integer or it could be as complicated as some advaned data structure such as list, queue or dequeue
+
+For example we need to find the largest element in window of size k.
+for example the window is of size 3 we will check largest for first 3 then we will move our last pointer and first pointer to + 1 element
+
+TYPE II: Two Pointers + Criteria
+The window size is not fixed, usally it asks you to find the subarray that meets the criteria
+
+For example, given an array of integers, find the number of subarrays whose sum is equal to a target value.
+
+
