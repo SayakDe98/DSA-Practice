@@ -1,0 +1,7 @@
+There is a linked list. We need to find mid point.
+We iterate from 0 to N then we iterate from 0 to N / 2
+
+We can take two runners / pointers.
+When fast pointer reaches N then slow pointer reaches N / 2 th position ( mid point )
+
+When fast takes two steps at a time then slow takes a step at a time.

@@ -1,0 +1,30 @@
+Frequency Count
+Given a sorted array which can contain repeated elements
+and an element k we need to find the frequency of a given element.
+
+Input array:
+[0, 1, 1, 1 , 1, 2, 2, 2, 3, 4, 4, 5, 10]
+Key = 2
+Output: 3
+
+2 is occuring 3 times hence output is 3
+
+to get continued occurences we can note down the first occurance and the last occurance and then we can subtract the first and last occurance and add 1 to the difference.
+
+We can do binarySearch to get lower bound and upper bound.
+
+If we want to write an algorithm using binarySearch we need to write two functions:
+one to find the first occurance(lower bound)
+another to find the last occurance(upper bound)
+
+For above array we have start pointer at element 0 and end pointer at element 10
+and mid point is at an index = (start index + end index) / 2 
+
+for left subarray: end = mid - 1,for right subarray, start = mid + 1
+
+continue doing binary search till we get 1 or 0 number of elements in array.
+
+Even if key is present at mid we continue to do binarySearch for lower bound in left subarray and for upper bound find key in right subarray.
+
+if a[mid] == key then update ans = mid, then call binarySearch in left part of array
+if a[mid] == key then update ans = mid, then call binarySearch in right part of array

@@ -1,0 +1,145 @@
+Reading Books:
+Given number of pages in n different books and m students. 
+The books are arranged in any order (not necessarily ascending) of number of pages. 
+Every student is assigned to read some consecutive segment of books. 
+The task is to assign books in such a way that the maximum number of pages assigned to a student is minimum.
+
+Find the maximum number of pages that a student will have to read.
+
+Sample Input
+books = [10, 20, 30, 15]
+students = 2
+
+Sample Output: 45
+
+Explanation
+There are 2 number of students. Books can be distributed
+in following fashion :
+1) [10] and [20, 30, 15]
+      Max number of pages is allocated to student
+
+      2 with 65 pages
+
+2) [10, 20] and [30, 15]
+      Max number of pages is allocated to student
+
+      2 with 30 + 15 = 45 pages
+
+
+3) [10, 20, 30] and [15]
+      Max number of pages is allocated to student
+
+      1 with 60 pages
+
+Of the 3 cases, Option 2 has the minimum pages = 45.
+
+For binary search we need a search space. We need to find what is the minimum and maximum answer possible.
+let min answer = low and max answer = high then we can say between these two is my search space.
+
+arr = [12, 12, 12, 12], students = 4
+everyone will be allocated 12. max = min = 12
+hence low  = 12.
+arr = [10, 20, 30], student = 1
+highest answer = 60. hence worst case = sum of all the pages.
+
+for arr[] = [12, 34, 67, 90] n = 4 students = 2
+so answer lies between 12 and 203.
+so assume: low = 12, high = 203(= 12+34+67+90)
+mid = (12 + 203) / 2 = 107
+
+we will take these pages and try to allocate to these 2 students 
+such that you don't end up allocating more than 107 pages to anyone.
+We want 107 to be our answer.
+we can give to student 1: 12 < 107,
+12 + 34 < 107
+12 + 34 + 67 > 107
+so allocate 12 + 34 to student 1
+now for student 2:
+67 < 107
+67 + 90 > 107 but that isn't possible so allocate to student 3
+by keeping limit of 107 we were able to allocate books to 3 students
+we have 2 students so this isn't possible.
+answer is between 108 and 203 this is because i know
+by keeping certain barrier data in left side gets automatically eliminated
+now low = 108 high = 203 mid = (108 + 203) / 2 = 155
+1 -> 12 + 34 + 67 
+2 -> 90
+so by keeping max barrier of 155 we can allocate books to couple of students
+hence we can say 155 can be one of my possible answers.
+we need minimal so we need to reduce the search space
+search space: low = 108, high = 154
+mid = 131
+try to distribute books by keeping a barrier of 131
+1 -> 12 + 34 + 67 
+2 -> 90
+by keeping a barrier of 131 we were able to distribute books to 2 students
+131 is valid barrier.
+we want minimal so we will reduce it to smaller search space.
+search space: 108 to 130, mid = 119
+1 -> 12 + 34 + 67
+2 -> 90
+so we can reduce it maybe as 119 is valid barrier.
+search space: 108 to 118 mid = 113
+1->12 + 34 +67
+2 -> 90
+113 is valid barrier.
+new search space = 108 to 112
+try to keep 110 as barrier.
+1-> 12 + 34
+2-> 67
+3-> 90
+since no of students exceeded so search space reduces to 111 to 112
+mid = 111 = try as barrier.
+1-> 12 + 34 
+2-> 67
+3->90 
+exceeds to 3 students > 2 students
+low = mid = high = 112
+1-> 12 + 34
+2-> 67
+3->90
+3 students > 2 students
+high = 112
+low = 113
+since low > high hence low crossed high hence binary search ends
+ans = 113.
+
+
+so keep low = min of array high = sum of array resultant = -1 initally
+while(low <= high) {
+     mid = (low + high) / 2
+     if(allocationPossible(mid)) {
+      res = mid
+      high = mid - 1
+     } else {
+      low = mid + 1
+     }
+}
+
+bool isPossible(int barrier) {
+      initially allocatedStudent = 1
+      initially pagesAllocatedToStudent = 0
+      for(int i = 0; i < n; i++) {
+            //a book has to be allocated to a student we can't allocate pages individually.hence barrier must be atleast greater than individual elements
+            if(arr[i] > barrier) {
+                  return false;//because element is more than barrier hence we cant allocate this barrier
+            }
+            if(pages + arr[i] > barrier) {
+                  allocatedStudent += 1
+                  pages += arr[i]
+            } else {
+                  pages += arr[i]//if pages + arr[i] doesn't cross barrier then we will add that to yourself
+            }
+      }
+
+      if(allocatedStudent > no_of_students) {
+            return false;
+      } else {
+            return true;
+      }
+}
+
+Structure of the code: It was a binary search inside that we called the isPossible function
+binary search takes logn time
+hence tc = logn * n = O(nlogn)
+space complexity is O(1) because we aren't using any external space.

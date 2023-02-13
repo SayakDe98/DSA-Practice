@@ -1,0 +1,23 @@
+Redundant Paranthesis
+
+Given a string of balanced expression, find if it contains a redundant paranthesis or not.
+A set of paranthesis are redundant if same sub-expression is usrrounded by unecessary or multiple brackets. Print 'Yes' if redundant else 'No'.
+
+Input               Output
+((a+b))               Yes
+(a+(b)/c)             Yes
+(a+b*(c-d))           No
+
+If there is an operator and an operand beside the bracket then it is not redundant
+Otherwise it is redundant.
+
+For this problem we also need to push the operands and operators inside the stack.
+for the expression ((a+b)), let's evaluate:
+we will push (, then (, then a, then +, then b, then when we get ) we will be poping b then + then a, but we will also use a boolean variable
+that boolean variable is for checking whether we got an operator if we pop the opening bracket.
+If that is the case then we return false otherwise if we get another opening bracket then we return true
+if we return true means we get out of function and we say it is redundant
+
+For ((a+b)+c) 
+we push (,(,a,+,b, then we get ) so we will pop till second (, then we see we got this operator which is (, so we set operator to true
+then we push +, c, then we get ) so we will pop all elements and we get operator ( which is the opening bracket so we set operator to true since operator is true and stack is empty so we return paranthesis is redundant, but if operator not true then return redundant

@@ -1,0 +1,35 @@
+Sparse Search 
+
+Given a sorted array of strings that is interspersed with
+empty strings, write a method
+to find the location of a given string.
+
+Input:
+["ai", "", "", "bat", "", "", "car", "cat", "", "", "dog", ""]
+bat
+
+Output:
+4
+
+Can we use linear search?
+Yes, O(n * m)
+
+Can we use binary search?
+No, we can modify binary search to work on this problem
+and we can improve the complexity using binary search.
+
+We create a start pointer at 0, end pointer at last index
+and a mid point at last index / 2
+
+if we have an empty string at mid point. We don't know whether we should go left or go right.
+We need to update mid point to the nearest non empty string
+by doing linear traversal in both directions.
+
+we will keep a pointer at left and a pointer at right of mid pointer
+we will decrease left pointer index by 1 and increase right pointer index by 1
+and then compare if we get a valid string we make that string = mid
+but if we don't get that then we decrease left pointer index by 1 again and increase right pointer index by 1 again.
+
+if we go left we make (mid)index - 1 as end point and (mid - 1)index /2
+if we go right we go to the right part by making mid index = s and end / 2 index as mid point
+Worst case tc: O(N) and will perform linear search.

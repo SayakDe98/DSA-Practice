@@ -1,0 +1,41 @@
+Recursion is the process of defining a problem
+(or the solution to a problem) in terms of(a simpler version of) itself.
+
+We have a problem of size n we reduce it to size n / 2
+then it can be reduced to size n / 4 and so on... this is Recursion
+
+Recursion occurs in depth first manner. Calls are done in left to right order
+
+For Recursion we must have a base case and then recursive case.
+For example if we want to define an operation "Go to Home" then we do:
+Base case: If you are at home stop moving.
+1)Recursive case: Take one step toward home.
+2)"Go to Home".
+
+Code:
+
+void goToHome(int x, int Home) {
+    if(x == Home) {
+        print("Reached Home");
+        return; 
+    }
+
+    x = x + 1;
+    goToHome(x, Home);
+}
+
+int main() {
+    int x = 1;// x is current position
+    int Home = 10;//Home is end goal
+
+    goToHome(x, Home);
+
+    return 0;
+}
+
+Recursion = Principal of Mathematical Induction
+1. Figure of the smallest case.
+
+2. Always assume the subproblem can be solved.
+
+3. Solve the current problem assuming sub problem solution exists.

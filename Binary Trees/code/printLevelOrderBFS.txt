@@ -1,0 +1,44 @@
+            1
+          /   \      
+        2       3
+      /   \      \
+    4      5     6
+          /
+         7
+
+
+1
+2 3
+4 5 6
+7
+
+In level order traversal for this example if we lose the address of
+1 after traversing to 2 then we won't be able to reach 3
+Similarly for 4 if we lose address of 2 we won't be able to reach 5 and so on...
+So we need a DS to store the address of the root node
+
+We are going to do traversal iteratively because we want to do breadth first search.
+If we do recursive traversal then we will be doing DFS
+
+So we will create a queue which will store the nodes that have been marked
+Secondly helps us to maintain FIFO ordering
+Nodes which are in earlier lvls we can go to the nodes which are in later lvls
+
+First we push 1 and push 2 and 3 then pop 1 then pop 2 then push 4 and 5 then pop 3 then push 6 then pop 4 then pop 5 and push 7 and pop 6 then pop 7
+This is level order output.
+1 \n
+2 3 \n
+4 5 6 \n
+7 \n
+
+Push 1 to the queue first then as the level has ended so push a NULL,
+Pop 1,
+Push 2 and 3(chldren of 1).
+Now pop a NULL.
+When we pop a NULL we need to push a NULL and print a new line
+NULL means current level has ended. Since current lvl ended hence all children of current lvl are in queue
+When we reach a NULL we need to put a newline character
+We push 4 and 5 and 6 and print a newline and insert a NULL after poping the prev NULL
+print 4 and pop print 5 and push 7 and pop 5
+print 6 and pop 6 and insert new line and pop old NULL and insert new NULL
+and then print 7 and pop 7 and now queue is empty hence don't need to insert a new NULL

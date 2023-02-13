@@ -1,0 +1,53 @@
+Square Roots:
+Given an integer N and an integer P, you need to find the square root of number N upto P places.
+Do it without using a library function.
+
+Input:
+N = 10, P = 3
+
+Output: 3.162
+
+Search space is monotonic.
+for example where will the square root of 10 lie in number line:
+between 0 to 10
+s = 0, e = 10, mid = 5
+5 ^ 2 > 10 so we go left
+reduce search space to left subarray
+
+between 0 and 4 we have 2, can 2 be a mid point?
+
+can 2 be a square root of 10?
+For integer part we need to find a number which is as big as possible and whose square is less than equal to 10
+we have found that number to be 2
+Now put:
+ans = 2
+
+we want the number to be as big as possible, so discard the left part of number line.
+we will have our search space between 3 & 4.
+s = m = 3, e = 4
+3 ^ 2 <= 10 is true.
+ans  = 3
+we again try to maximize our ans
+s = m = e = 4,
+4 ^ 2 > 10, we won't update ans and also we put e = 3 ,s = m = 4 , now s > e hence we stop loop
+
+we will use binarySearch to find integer part
+logn complexity.
+using linear search root n 
+so we reduced tc using binary search
+
+now let's look at decimal part:
+we can apply binary search for decimal part digit by digit.
+3.1 ^ 2 <= 10
+3.2 ^ 2 > 10
+
+hence we try with 3.11 to 3.19
+3.11 ^ 2 <= 10
+same upto 3.16 ^ 2 <= 10
+
+now lets look for 3.161 to 3.169
+3.162 ^ 2 <= 10
+we don't look any further because we were given P = 3,
+hence we are doing linear search for right digit at every places
+
+overall tc: O(logn + 9P) P <<<< n hence tc = O(logn), hence we used binary + linear search

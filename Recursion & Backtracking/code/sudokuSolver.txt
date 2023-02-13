@@ -1,0 +1,32 @@
+Sudoku Solver
+Given a partially filled Sudoku matrix of 9x9,
+write a function to fill the matrix using sudoku rules.
+Input:
+2D Matrix.
+
+Output:
+Solved 2D matrix
+
+Let's assume all those elements which are empty are 0's and we need
+to replace 0's with valid integers from 1 to 9 according to sudoku rules
+in a 9*9grid every row should contain a number from 1 to 9, 
+every column should contain a number from 1 to 9 as well.
+Every sub grid which is 3 x 3 sub grid should also contain number from 1 to 9
+No number should repeat either in row or column or sub grid
+
+How to try out all possibilites?
+Stop when we get one valid solution
+we can check from left to right or from top to bottom
+If cells are prefilled then don't change, then go to next cell
+If a cell isn't filled then make a recursive call on the subgridin which we haven't checked so far
+
+Try out all possible solutions->1 valid solution
+Check if a number can be placed. doesn't occur in row+ col, subgrid then place it.
+check for(number in range 1 to 9)
+if number can be placed then arr[i][j] = number
+solve (i, j + 1)
+try next if solve returns false otherwise return true
+corner case: if j == 9 then we go to next row, i.e.: i = i + 1, j = 0
+finally if  i = 9 then return true because this problem can be solved.
+
+if we have tried all the numbers then go back and change some other cell. Make that cell 0 and return false.

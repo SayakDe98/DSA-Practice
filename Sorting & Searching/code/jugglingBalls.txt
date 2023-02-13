@@ -1,0 +1,13 @@
+Juggling Balls
+Given an array containing balls of Red, Blue and Green Color in a random order. Your goal is to arrange these balls in sorted order - Red Balls, followed by Blue and then Green Balls. Red balls are denoted using number 0, Blue using 1 and Green using 2.
+
+Note: Try to solve the problem in a single scan of the array without using extra space.
+
+Hint - read about DNF Algorithm.
+
+Input
+
+{0, 0, 1, 2, 0, 1, 2, 0}
+Output
+
+{0, 0, 0, 0, 1, 1, 2, 2}

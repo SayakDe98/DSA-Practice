@@ -1,0 +1,15 @@
+Balanced paranthesis
+Given an expression string, write a program to check all the pairs of paranethesis are valid.
+
+Input:
+(( a + b ) * x - d )
+(( a + b ] + c ) * ( d - e )
+
+Output:
+True
+False
+
+We will push the first bracket we encounter if that is a closing bracket we return False
+if we get no brackets we return true because there are no brackets
+if we get opening bracket we push it in stack then we search for next bracket to be corresponding closing bracket or another type of opening bracket
+if we get either of them we continue till we reach end. if atleast 1 bracket is open and we reach end then return false, else return true

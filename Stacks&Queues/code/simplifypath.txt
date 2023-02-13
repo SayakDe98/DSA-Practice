@@ -1,0 +1,49 @@
+In this coding challenge, we will build a functionality for a command line tool. We want to write a function that takes in a non-empty string representing a valid Unix-shell path and returns a simplified version of the path. The simplified path must be equivalent to the original path, that means it should point to same file/directory as the original path.
+
+A path can be an absolute path, meaning that it starts at the root directory in a file system, or a relative path, meaning that it starts at the current directory in a file system. In a Unix-like Operating System, a path is bounded by the following rules:
+
+The root directory is represented by a /. This means that if a path start with /, it's an absolute path; if it doesn't, it's a relative path.
+
+The symbol / otherwise represent the directory separator. This means that the path /x/y is location of directory y inside directory x, which is itself located inside the root directory.
+
+The symbol .. represents the parent directory. This means that accessing files or directories in /x/y/.. is equivalent to accessing files or directories in /x
+
+They symbol . represents the current directory. This means that accessing files or directories in /x/y/. is equivalent to accessing files or directories in /x/y
+
+The symbols / and . can be repeated sequentially without consequence; the symbol .. cannot, however repeating it sequentially means going further up in the parent directories. For example, /x/y/z/././.
+
+and /x/y/z are equivalent. and /x/y/z/../../... and /x/y/z aren't. The only exception is with the root directory : /../../.. and / are equivalent because the root directory has no parent directory, which means repeated accessing parent directories does nothing.
+
+Summary
+
+"/a/./"   --> means stay at the current directory 'a'
+ 
+"/a/b/.." --> means jump to the parent directory
+              from 'b' to 'a'
+ 
+"////"    --> consecutive multiple '/' are a  valid  
+              path, they are equivalent to single "/".
+Examples
+
+Input : /a/./b/../../c/
+Output : /c
+ 
+Input : /a/..
+Output:/
+ 
+Input : /a///b
+Output : /a/b
+ 
+Input : /a/../
+Output : /
+ 
+Input : /../../../../../a
+Output : /a
+ 
+Input : /a/./b/./c/./d/
+Output : /a/b/c/d
+ 
+Input : /a/../.././../../.
+Output:/
+
+

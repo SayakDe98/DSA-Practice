@@ -1,0 +1,42 @@
+Angry Birds:
+There is a long wire along at straight line, which contains N bird nests at positions x1, x2, ..., xN.
+
+There are B(B <= N) birds, which become angry towards
+each other once put into a nest. To put the birds from hurting each other you want to assign birds to nests such
+that minimum distance between any two birds is as large as possible. What is the largest minimum distance?
+
+We can apply binary search here.
+Any search space which is non increasing or it is non decreasing is monotonic search space and we can apply binary search on it.
+
+Input:
+N = 5 nests/stalls
+B = 3 birds
+Nests are at location: [1, 2, 4, 8, 9]
+
+Output: 3
+
+Approach 1: Brute Force.
+NcB options. where c is combination.
+
+Approach 2: For binary search we need monotonic space,
+here search space is the distance since we need to find out the distance hence it is the search space
+min. possible distance between  2 birds = 0 if we put birds in same nest
+max. possible distance between 2 birds = end index - start index.
+
+Can we apply binarySearch in this search space ? Answer: Yes
+
+if s = 0, e = 8 
+then mid = ( 8 + 0 ) / 2 = 4
+can we make a distribution such that min. distance between 2 birds is atleast 4
+
+we place first bird at 1 then for 2nd bird we place it at 8 but we don't have place for 3rd bird
+
+previously we had min distance = 4 so we reduce our search space to 0 to 4 distance because it can't be greater than 4 for 3 birds and we have monotonic search space
+now new mid = ( 0 + 4 ) / 2 = 2
+we can place birds with min. distance = 2
+1, 4, 8 are the place where we can place the three birds
+we want to maximize our answer so we need to discard the left part
+so start = 2, end = 4
+mid = (2 + 4) / 2 = 3
+1, 4, 8 are the places where we place birds
+largest distance  = 3 because 4 isn't possible.

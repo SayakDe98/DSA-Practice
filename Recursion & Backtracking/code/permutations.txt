@@ -1,0 +1,23 @@
+Permutations
+Given a string s, find all permutations of the string.
+
+Input: abc
+Output: abc, acb, bac, bca, cab, cba
+
+Firstly, let's keep a at the first place and find permutations of the smaller string bc
+Secondly, keep b at the first place and find permutations of the smaller string ac
+Thirdly, keep c at first place and permuation of smaller string ab
+
+for a we have abc, acb
+for b we have bac or bca
+for c we have cab or cba
+
+If we don't modify our array while going back we will end up getting wrong result
+WHile going back we should restore our original array, this is called backtracking.
+A B C 
+replace A with A, then A with B, then A with C and permute rest of the stuff.
+            A,B,c
+        A | BC 
+    AB|C  AC|B 
+ABC         ACB 
+If we hit base case we print it. Everytime we go back we undo changes.

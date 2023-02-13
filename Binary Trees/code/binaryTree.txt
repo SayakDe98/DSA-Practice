@@ -1,0 +1,31 @@
+Binary tree is hierarchial DS
+Where each node can have atmost 2 children.
+There will also be nodes which don't have any children. They are called leaf nodes.
+Starting point of the tree is also called root node.
+
+We will define a node class. It will contain some kind of data.
+we also have pointer variables for left and right nodes.
+class node {
+    char data;
+    node * left;
+    node * right;
+}
+root is a pointer variable which stores starting address of the tree.
+height of the tree denotes no of lvls we have for a particular tree
+
+-> Tree: Hierarchial Data Structure
+-> Each node can have at-most 2 children
+-> Basics, creating a tree, searching, tree traversals(preorder, inorder, postorder, level order)
+
+Comments:
+-> Tree problems follow a recursive Structure
+-> Fairly important topic for interviews
+-> Mostly all problems can be solved by dividing the problem into subproblem
+into subproblems and making recursive calls on subtrees or iteratively.
+
+TO note:
+Height of root node: max(h1, h2) + 1, where h1 is height of left subtree and h2 is height of right subtree and 1 is for root node itself
+
+Sum of all nodes: make a call on left subtree to get sum of all nodes in left subtree 
+and make a call on right subtree to get sum of all nodes in right subtree and add 1 to it because of root node
+hence: sum of nodes = sum of nodes in left subtree + sum of all nodes in right subtree + 1

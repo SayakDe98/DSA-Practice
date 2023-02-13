@@ -1,0 +1,40 @@
+Concept of Quick Sort 
+Implementing QuickSort to sort an array
+
+Input Array: [10, 5, 2, 0, 7, 6, 4]
+Sorted Array: [0, 2, 4, 5, 6, 7, 10]
+
+QUick Sort is a divide and rule algo 
+Avg tc: O(nlogn)
+Worst tc: O(n ^ 2)
+
+1) Choose a pivot point about which we can divide the array.
+For our example let's pick last element as pivot
+2) Partition - Partition array into two parts: let's say the pivot element is 4.
+So we will keep 4 and store all elements less than 4 in one part and all elements greater than 4 in another part. 4 will be in the correct position.
+3)Recursive Sort - quick sort
+
+for 10, 5, 2, 0, 7, 6, 4
+pivot = 4
+the array is divided into two parts:
+one window which has elements lesser than pivot and other which has elements greater than pivot
+i at -1 position, j at 0th position
+j pointer moves + 1 index
+we see 10 & 5 are greater than 4 
+then we see j is smaller than 4 so now
+so we move i to 0th position and we swap element at ith pos with ele at j th position
+
+2,5,10, now arr[i] = 2, arr[j] = 10
+now we get 0 as next ele
+so we swap 5 and 0
+2, 0 , 10, 5
+similarly
+2,0 -smaller  10,5,7,6,4 - greater
+
+now arr[i] = 0, arr[j] = 6
+now we swap
+swap arr[i + 1] with arr[pivot]
+hence after first partition function call:
+2,0,4,5,7,6,10
+now we need to call Quicksort for 2,0
+and quicksort for 5,7,6,10

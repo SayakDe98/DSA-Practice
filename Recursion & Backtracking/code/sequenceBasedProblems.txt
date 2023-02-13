@@ -1,0 +1,15 @@
+Find subset of a given string:
+Given a string find all the subsets of given string.
+
+input:
+abc
+output:
+"", a,b,c,ab,ac,bc,abc
+
+For a string of length N there are going to be 2^N subsets.
+For each letter we have two options so we multiple 2 n times we get 8 options.
+subset also means subsequence. but it is not a substring.
+substring is continuous part of array whereas a subsequence can be discontinuous.
+In string abc -> ac is subsequence but not substring
+
+Let's start with an empty string then we can include a or exlclude a  that is "" or a

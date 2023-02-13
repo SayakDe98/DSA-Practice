@@ -1,0 +1,19 @@
+Phone Keypad
+Given a number N and a modern phone keypad.
+Find out all possible strings generated using that number.
+
+Sample Input
+23
+
+Sample Output
+AD, AE, AF, BD, BE, BF, CD, CE, CF
+
+2-> A,B,C
+3-> D,E,F
+4->G,H,I
+.
+.
+.
+9->W,X,Y,Z
+
+We are going to read the first digit then go for the second digit and so on...

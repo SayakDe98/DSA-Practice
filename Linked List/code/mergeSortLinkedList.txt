@@ -1,0 +1,26 @@
+Given a linked list, write a function to sort the linked list
+using Merge Sort.
+
+Input:
+3 -> 2 -> 1 -> 6 -> 5 -> 4 -> 8 -> 7 -> NULL
+
+Output:
+1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> NULL
+
+We are going to change the pointers inside the linked list
+
+For Merge Sort divide the linked list into two parts
+Then perform merge sort in the first half and perform merge sort in second half
+and then merge them
+
+Analysis of merge sort on array and linked list(Assuming O(1) = k, O(N) = kN)
+Operation                      |           Array               |                  Linked List
+Calculating mid point          |             k                 |                         kN
+Sort two arrays of size N / 2  |             2T( N / 2 )       |                    2T( N / 2 )
+Merging                        |            kN                 |                    kN
+
+Total Time Complexity: 
+Array: ( k + 1 ) * N + 2 * T( N / 2 ) = O(NlogN)
+Linked List: (2 * k) * N + 2 * T * ( N / 2 ) = O(NlogN)
+
+Overall TC remains same

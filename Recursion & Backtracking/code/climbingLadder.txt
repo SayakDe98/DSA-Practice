@@ -1,0 +1,33 @@
+Given a ladder containing N steps, you can take a jump of 1, 2 or 3 at each step.
+Find the number of ways to climb the ladder.
+
+Sample input: N = 4
+Sample Output: 7
+
+we can make n = 0 as base case or n = 1 as base case or both as base case
+in order to reach 2 we have two ways 1 + 1 = 2, 1 from the 1 which takes 1 way from 0 and other 1 from 0
+we are calculating recursion of 1 as well as 0 which is overlapping.
+With dynamic programming we can optimize these calls.
+
+For N = 3 we have 0, 1, 2, 3
+0, 2, 3
+0, 1, 3
+0, 3 
+Total number of ways: 4
+
+Similary for N = 4 we have:
+0, 1, 2, 3, 4
+0, 2, 3, 4
+0, 1, 3, 4
+0, 3, 4
+0, 2, 4
+1, 2, 4
+0, 1, 4
+Total number of ways = 7
+
+Tree:
+                    4
+            3               1
+        2   1   0    2
+    1   0   0       1 0     0
+0

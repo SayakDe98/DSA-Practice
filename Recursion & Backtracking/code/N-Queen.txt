@@ -1,0 +1,44 @@
+N-Queen
+N-Queen is the problem of placing N chess queens of
+an NxN chessboard so that no two queens attack each other.
+
+Input:
+N = 4
+
+Output:
+2D martix with queens
+
+Backtracking can be used here.
+
+Possible variations:
+Print one configuration
+Print all configurations
+Count possible configurations
+
+Assume we have a 4x4 board
+1 queen per row. Finalize the index where the queen should be placed.
+for i = 0, let's fix queen at index 0 and solve remaining sub problem
+now increase i and make i = 1 and try to fix queen in this row, we can place it at j = 2
+now increase i to 2. we can't place queen at this row.
+now this call will go to parent recursive call and tell there is something wrong in your config and 
+the parent call should change its configuration.
+the first recursive call was i = 0, second recursive call was i = 1
+and third recursive call is i = 2, so for i = 2 we got no place for queen so
+it tells second recursive call to change config.
+Hence we need to backtrack.
+
+When we backtrack we forget info about i = 2 and we go back to previous row where i = 1
+the function call will maintain till which column we have already tried placing queen
+
+now j = 3. we will remove queen from i = 1, j = 2 and place it in i = 1, j = 3
+now we go back to i = 2 and still see we can't place a queen in that row
+hence 2nd row will tell 1st row something wrong with config
+hence we go back to 0th row to tell there is something wrong with config of that row
+
+now place queen at i = 0, j = 1 and retry
+once we fill up all the queens we will see i == N and we will return true
+once thats done the last recursive call will convey this message to parent recursive call
+and this continues till we reach main
+and then we tell the state of the board and we can print this solution.
+This code serves purpose of checking 1 possible config or whether the current config is possible.
+

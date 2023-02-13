@@ -1,0 +1,22 @@
+Rotated search
+
+Write a function that takes input an sorted array of distinct integers, which is rotated about a pivot point and finds the index of any given element.
+
+Sample Input:
+[7, 9, 10, 1, 2, 3, 4, 5, 6]
+element = 4
+
+Sample Output:
+6
+
+Description: The array was sorted earlier then they were rotated about a pivot point
+
+We can always do linear search but tc is more, so we need to do a modified binary search.
+
+We can break the array into two parts: both parts are increasing but mid = that element after which we have a decreasing element
+then we can search in the two subarrays whether element is in left subarray or right subarray
+
+arr[start] <= key <= arr[mid] for left subarray
+arr[mid + 1] <= key <= arr[end] for right subarray
+
+diagram given also.

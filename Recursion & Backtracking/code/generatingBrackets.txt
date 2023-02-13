@@ -1,0 +1,20 @@
+Generating Brackets
+Write a function to generate all possible n pairs 
+of balanced paranthesis '(' and ')'.
+
+Input 2
+Output 
+()()
+(())
+
+Input 3
+Output
+((()))
+(()())
+(())()
+()(())
+()()()
+
+Rule to approach this problem whenever we see a closing bracket there must be one opening bracket
+count of open must be less than number of brackets,  then we can place opening brackets
+count of open must be greater than count of close,  then we can place closing brackets

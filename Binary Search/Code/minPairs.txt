@@ -1,0 +1,34 @@
+Min Pairs
+Given two non empty arrays find the pair of numbers(one from each array) whose absolute
+difference is minimum. Print any one pair with the smallest difference.
+
+Sample Input:
+a1 = [-1, 5, 10, 20, 3]
+a2 = [26, 134, 135, 15, 17]
+
+Sample Output:
+[20, 17]
+
+Approach 1: We can use brute force approach O(n * m)
+Approach 2: We can do binary search not directly but yes.
+We will sort the second array.
+We can select a number in first array and search which number is closest to that number in second array,
+for that we can use lower bound function of binarySearch.
+
+In lowerBound function we will check which number is closest to -1
+15 - (-1) = 16
+let's go to element 5: 15 - 5 = 10
+for 10: 15 - 10 = 5
+for 20: consider element just smaller OR just bigger/equal
+we ignored this consideration for first 3 elements because
+elements in second array are bigger than 10.
+for 26: we have two options we can check with 17 or 26 , we also have to consider the element which is just smaller or just bigger or equal.
+Why didn't we consider the smaller element? Because in a1 there was no element which was smaller than -1, 5 and 10.
+Otherwise we will have two options for every element.
+with 20 we have option to pair with 17 and 26.
+Let's assume the element 26 ha index given by lowerBound function.
+If we know an element which is just larger or equal to the current elment we can also do lowerBound - 1.
+a1[lowerBound] = 26, a1[lowerBound - 1] = 17
+
+Time complexity: Sorting: MlogM and for iteration with binarySearch : NlogM
+Total T.C.: O(MlogM + NlogM)

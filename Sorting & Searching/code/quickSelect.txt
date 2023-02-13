@@ -1,0 +1,30 @@
+We did sorting using quick sort now let's use this
+technique(partition) to search an element.
+
+Write a function that takes input an array of distinct
+integers and returns kth smallest in the array.
+
+Sample Input:
+[10, 5, 2, 0, 7, 6, 4]
+k = 4
+
+Sample Output:
+5
+
+technique 1: do sorting and find kth smallest ele
+technique 2: do heap and find kth smallest ele
+
+arr[pivot] = 4
+and we have 2,0 as unsorted array and 5,7,10,6 as unsorted array
+
+Let's assume 4 is in its correct position
+and its position = 3
+
+we see we don't need to sort the left part because there are elements lesser than k
+so we need to call quicksort on right part of array
+
+so either we will go either in left part or in right part
+
+when we do quicksort in left part we see 6 is at position 5
+
+we need k = 4 so we will make a call on left part that is 5 then we get k = 4 's value

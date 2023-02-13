@@ -1,0 +1,28 @@
+Stack Recap:
+Push - O(1), Pop - O(1) and Top - O(1)
+Stack comes in two places :
+1) Doing Recursive Functions(implicit stack which is the call stack)
+2) We can use stack as a standalone Data Structure that is the explicit stack
+Example: Balls inside a bottle will come out in LIFO manner
+Stack is LIFO Data Structure.
+We push and pop from Top. We can access the top of stack.
+
+Queue Recap:
+It is FIFO Data Structure
+EnQueue - O(1), DeQueue - O(1) and Front - O(1)
+Example: ATM Queue person who joined the queue first will get the cash earlier than someone who came later.
+We EnQueue from rear and DeQueue from Front
+We can check which element / data is there at Front.
+
+Deque Recap:
+Insertion from front and back
+Insertion from back is push_back
+Insertion from front is push_front
+Front part is visible.
+We can use sliding window in this.
+
+Comments:
+-> Stacks and Queue are used as a helpful data structures in many other problems
+-> Less variety on standalone problems
+-> Iterative solutions to recursive problems can be written using stack
+-> Problems involving trees and graphs make extensive use of Queue especially traversals like BFS / Level Order.

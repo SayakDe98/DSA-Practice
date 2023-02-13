@@ -1,0 +1,19 @@
+//Given a set of non negative integers and a value sum determine if there is a subset of the given set with sum equal to given sum.
+//Input:
+//arr = [10, 12, 15, 6, 19, 20]
+//sum = 16
+
+//Output: Yes, how many such subsets are there such that they sum to a number x
+
+//For arr = [1,2,3,4,5]. sum = 6 => {5,1}, {4,2}, {3,2,1}
+//look for recursive structure.
+//sum = 6. If we include 1 we can make a recursive call on the remaining part of the array
+//if we select element at index 0 = 1(here) then we can make recursive call on rest of the array
+//which starts from index = i + 1 and goes till end of array.
+//and we need to form a sum that is x - element at index 0
+//a = function f(arr, i + 1, x - arr[i]) => number of ways if we include current elemnt
+//b = function f(arr, i + 1, x) => number of ways if we don't include current element
+//ans = a + b
+
+//for recursion in worst case we will have an empty array, we start recursion from index 0
+//For an empty array: if sum = 0 return 1 else return 0

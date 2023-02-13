@@ -1,0 +1,44 @@
+Non-Repeating Character
+
+You are given a running stream of characters, output the first non repeating character in the string formed so far after every new characteryou get in input.
+Output -1 if such a characte rdoesn't exist.
+
+Input:
+a a b c c b c d
+
+Output:
+a - 1 b b b -1 -1 d
+
+Running stream means characters keep on coming one by one
+
+Brute Force:
+maintain a map where every letter is mapped with its frequency
+a has frequency 1, then we scan the entire string from left to current pos
+we find whether this can be the output
+For first pos(0th index) we see a is the only non repeating character
+for second position we see there are two a's so there isn't any non repeating character hence -1
+for 3rd position we see b as there is only one b hence answer is b,
+for 4th position from left to right we see b and c are only non repeating
+but since b is coming earlier than c hence we place b
+
+T.C.: O(N^2)
+
+Let's use queue with a hash map
+When we insert a to hashmap then its value is 1, at the same time 
+we will insert a to the rear of queue
+since the front and end of queue is same for a queue with 1 element so
+front = a hence output is a 
+now we reach second element we get a again
+when we see that the front of queue and the element which we need to
+push at the end is same then we dequeue the front element and don't enter the current element to the queue
+so now queue is empty so we output -1
+now we reach b, since front = rear = b so we output b
+
+Now we reach c we enter it to rear but since front = b still so we output b
+now we get c again so we don't need to enter it but increase frequency in map to 2
+keep doing this till we reach b again since the front of the queue has frequency more than 1 hence dequeue it
+similar thing for c since it is 2 frequency remove it
+since queue is empty so output -1
+now we continue this and reach d since it has frequency = 1 so output d
+
+We can solve in O(N)

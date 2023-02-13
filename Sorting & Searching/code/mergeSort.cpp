@@ -28,7 +28,7 @@ void merge(vector<int> &array, int s, int e){
 
     //copy back elements from temp to original array
     int k = 0;
-    for(int index = s; index <= e; i++){
+    for(int index = s; index <= e; index++){
         array[index] = temp[k++];
     }
     return;
@@ -58,6 +58,10 @@ int main(){
     mergesort(arr, s, e);
 
     for(int x: arr){
-        cout << x << ",";
+        cout << x << " ";
     }
+
+    cout << endl;
+
+    return 0;
 }

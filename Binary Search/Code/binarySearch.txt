@@ -1,0 +1,15 @@
+Binary Search uses divide and conquer algo.
+Most useful example: We are given a sorted array and
+we need to search the element in that array.
+
+For example:
+int arr[] = {1, 2, 10, 11, 19, 29, 28};
+int key = 19;
+
+we put start at 1(index: 0), end at 28(index: (sizeof(arr) / sizeof(int) - 1) and mid at 11((start index + end index)/ 2).
+then we see that it can't be present before 11 so we bring start at mid + 1 index.
+originally array size: N, then it changed to N / 2, if we had more execution it would be N / 4
+
+If key was present in first half then end = mid - 1
+T.c. : O(logn base 2)
+Hence it is very fast.
