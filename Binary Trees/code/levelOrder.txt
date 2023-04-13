@@ -1,0 +1,25 @@
+Build a Tree(Level order)
+Build a Binary Tree from Level Order Input, -1 in input represents NULL.
+
+1 2 3 4 5 -1 6 -1 -1 7 -1 -1 -1 -1 -1
+
+If input is given in level order fashion how we can build such a Tree
+
+Expected Output:
+                  1
+             2          3
+        4        5         6
+              7
+
+We will take a queue and insert 1 in this queue because the next 2 numbers
+we want to read are children of 1
+we will pop 1 and scan two numbers because every node can have atmost 2 children
+next we pop 2 and next 2 numbers we gonna read are gonna be left and right of 2
+we attach 4 to left of 2 and 5 to right of 2
+next we get 3 and we pop 3 and left to 3 is -1(no child) and right of 3 is 6
+similarly we read 4 and pop it and scan next 2 numbers as left and right and so on...
+
+Key things to note:
+Build the root node and for every other node we have level order traversal
+and read 2 numbers from the input every time
+IF number is -1 dont do anything if number is not -1 create and attach node

@@ -1,0 +1,19 @@
+Find the diameter of the binary tree, diameter is defined as the largest distance between any two nodes of the tree.
+For the binary tree:
+               1
+        2              3
+    4     5                  6
+        7
+The diamter of the binary tree is 5 since distance between 7 and 6 is furthest which is 5
+
+Diameter may or may not pass through root, i.e., diameter may lie completely in a subtree
+
+How to generalise it then?
+1st case: D1, Diameter passes through the root. For this we can add maximum height of right subtree and maximum height of left subtree add them to get the diameter.
+2nd case: D2, Diameter lies in left subtree
+3rd case: D3, Diameter lies in right subtree
+D2 and D3 are defined recursively. D1 is what is you compute using H1 and H2
+
+If root is NULL then diameter = 0, else d1 = h1 + h2, d2 = diam (root->left),d3=diam(root->right)
+d=max(d1,d2,d3);return d;
+we are doing post order traversal.
