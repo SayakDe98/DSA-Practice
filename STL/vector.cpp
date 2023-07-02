@@ -5,6 +5,7 @@ using namespace std;
 
 int main() {
     vector<int> v;
+    vector<int>a(5,1);//5 size with 1 assigned to all
     cout << "Size of vector: " << v.size() << endl;
     cout << "Capacity of vector: " << v.capacity() << endl;
     v.push_back(1);
@@ -38,5 +39,27 @@ int main() {
         cout << i << " ";
     }
 
+    cout << endl;
+
+    //size becomes 0 capacity doesn't become 0 when we clear
+    cout << "Capacity before clear: " << v.capacity() << endl;
+    cout << "Size before clear: " << v.size() << endl;
+    v.clear();
+    cout << "Capacity after clear: " << v.capacity() << endl;
+    cout << "Size after clear: " << v.size() << endl;
     
+    cout << "a: ";
+    for(int ele: a) {
+        cout << ele << " ";
+    }
+    cout << endl;
+
+    vector<int> b(a);//copies a vector into b
+
+    cout << "b: ";
+
+    for (int ele : b)
+    {
+        cout << ele << " ";
+    }
 }
