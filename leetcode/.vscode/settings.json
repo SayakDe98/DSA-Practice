@@ -2,7 +2,8 @@
     "files.associations": {
         "*.js": "javascript",
         "unordered_map": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iostream": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
