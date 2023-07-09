@@ -37,5 +37,7 @@ int main() {
         cout << mini.top() << endl;
         mini.pop();
     }
+
+    cout << "Empty? " << mini.empty() << endl;
     return 0;
 }
