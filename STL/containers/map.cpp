@@ -34,9 +34,8 @@ int main() {
     for(pair i: m) {
         cout << i.first << ": " << i.second << endl;
     }
-
     cout << "After erase: " << endl;
-
+    
     m.erase(5);
     for(pair i: m) {
         cout << i.first << ": " << i.second << endl;
@@ -45,7 +44,6 @@ int main() {
     //Search complexity of this map is O(logn) which comes from red black tree or balanced tree
     //Search complexity of unordered_map is O(1) which comes from hashtable
     map<int, string>::iterator it = m.find(5);//returns iterator for an element
-    
     cout << (*it).first << endl;//returns the position of iterator
     for(map<int, string>::iterator i = it; i != m.end(); i++) {
         cout << (*i).first << endl;
